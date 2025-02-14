@@ -16,7 +16,7 @@ interface cloudinaryUploadResult {  // we have to write this just because we are
     public_id: string,
     bytes: number,
     duration?: number,  // ? means that this property is optional
-    [key: string]: any
+    [key: string]: unknown
 }
 
 export async function POST(request: NextRequest) {

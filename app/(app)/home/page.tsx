@@ -20,7 +20,7 @@ function HomePage() {
             else {
                 throw new Error(" Unexpected response format");
             }
-        } catch (error:any) {
+        } catch (error:unknown) {
             console.log(error);
             setError("Failed to fetch videos")
         } finally {
@@ -51,10 +51,14 @@ function HomePage() {
     return (
         <div className="container mx-auto p-4">
              <h1 className="text-2xl font-bold mb-4">Videos</h1>
-             {videos.length == 0 ? (
-                <div className="text-center text-lg text-gray-500">
-                    No videos available
-                </div>
+             {videos.length == 0 ? ( 
+                error!=null ? (
+                    <div className="text-center text-lg text-gray-500">${error}</div>
+                ) : (
+                    <div className="text-center text-lg text-gray-500">
+                        No videos available
+                    </div>
+                )
              ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {videos.map((video) => (

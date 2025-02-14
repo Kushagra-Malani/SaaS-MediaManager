@@ -35,11 +35,13 @@ function VideoUpload() {
         console.log("Appended form data: ", formData.get('description'));
 
         try {
+            /*
             const response = await axios.post('/api/video-upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             })
+            */
             // check for 200 response
             router.push("/")
         } catch (error) {

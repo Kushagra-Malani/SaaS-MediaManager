@@ -11,7 +11,7 @@ cloudinary.config({
 
 interface cloudinaryUploadResult {  // we have to write this just because we are using TypeScript
     public_id: string,
-    [key: string]: any
+    [key: string]: unknown
 }
 
 export async function POST(request: NextRequest) {
