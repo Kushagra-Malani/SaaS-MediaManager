@@ -1,6 +1,7 @@
 'use client'
 import React, {useState} from 'react';
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 function VideoUpload() {
 
@@ -34,14 +35,15 @@ function VideoUpload() {
         console.log("Appended form data: ", formData.get('description'));
 
         try {
-            /*
             const response = await axios.post('/api/video-upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             })
-            */
             // check for 200 response
+            if (response.status == 200) {
+                console.log("Video uploaded successfully:", response.data);
+            }
             router.push("/")
         } catch (error) {
             console.log("error", error);
